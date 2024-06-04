@@ -1,0 +1,80 @@
+@import "../../../styles/variables";
+
+.home-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+
+  .results {
+    width: 100%;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 5px;
+  }
+
+  .loader {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  mat-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .image {
+      width: 100%;
+      height: 40%;
+      position: relative;
+      border-start-start-radius: 5px;
+      border-start-end-radius: 5px;
+      img {
+        position: absolute;
+      }
+    }
+    .date {
+      color: #363636;
+      opacity: 60%;
+      display: flex;
+      column-gap: 6px;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+    }
+    .date-icon {
+      font-size: 16px;
+      height: 16px;
+      width: 16px;
+      margin-top: -1px;
+    }
+    .description {
+      height: 100%;
+      overflow: hidden;
+      font: 400 16px/24px $main-font !important;
+    }
+  }
+
+  mat-card-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 25px;
+    padding-bottom: 0;
+    flex: 1;
+    height: 50%;
+  }
+
+  mat-card-actions {
+    padding: 0 7px;
+    height: 10%;
+  }
+
+  mat-form-field {
+    width: 600px;
+  }
+}

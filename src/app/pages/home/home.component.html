@@ -1,0 +1,72 @@
+<div class="home-container">
+  <section>
+    <p class="subtitle">Filter by keywords</p>
+    <mat-form-field appearance="outline">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput placeholder="Search" />
+    </mat-form-field>
+  </section>
+
+  @if (data$ | async; as data) {
+  <div class="subtitle results">Results: {{ data.count }}</div>
+
+  <mat-grid-list
+    cols="3"
+    rowHeight="530px"
+    gutterSize="45px"
+    style="padding-bottom: 63px"
+  >
+    @for (item of data.results; track $index) {
+    <mat-grid-tile>
+      <mat-card
+        class="card"
+        [routerLink]="['/article', item.id]"
+        class="pointer"
+      >
+        <div class="image">
+          <img
+            mat-card-image
+            ngSrc="{{ item.image_url }}"
+            fill
+            alt="article image"
+          />
+        </div>
+        <mat-card-content>
+          <div class="date">
+            <mat-icon class="date-icon">calendar_today</mat-icon>
+            <span>{{ item.published_at | date : "longDate" }}</span>
+          </div>
+          <p class="title">
+            {{
+              item.title.length > 80
+                ? (item.title | slice : 0 : 80) + "..."
+                : item.title
+            }}
+          </p>
+          <p class="description">
+            {{
+              item.summary.length > 160
+                ? (item.summary | slice : 0 : 160) + "..."
+                : item.summary
+            }}
+          </p>
+        </mat-card-content>
+
+        <mat-card-footer>
+          <mat-card-actions>
+            <button mat-button>
+              Read more
+              <mat-icon>arrow_forward</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+    }
+  </mat-grid-list>
+  } @else {
+  <section class="loader">
+    <mat-spinner [diameter]="20"></mat-spinner>
+  </section>
+  }
+</div>
