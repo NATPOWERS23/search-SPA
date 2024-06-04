@@ -78,3 +78,7 @@
     width: 600px;
   }
 }
+
+::ng-deep .highlighted-text {
+  background-color: yellow;
+}

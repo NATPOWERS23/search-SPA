@@ -11,11 +11,7 @@ export class ArticlesService {
   private readonly apiUrl = 'https://api.spaceflightnewsapi.net/v4/';
 
   getArticles(): Observable<ResultData> {
-    return this.http.get<ResultData>(`${this.apiUrl}articles/`, {
-      params: {
-        limit: 6,
-      },
-    });
+    return this.http.get<ResultData>(`${this.apiUrl}articles/`);
   }
 
   getArticleById(id: number): Observable<Article> {

@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,10 +19,14 @@ import { Observable } from 'rxjs';
 
 import { ResultData } from './home.interface';
 import { ArticlesService } from '../article/articles.service';
+import { SearchPipe } from './pipes/search.pipe';
+import { HighlightPipe } from './pipes/highlight.pipe';
 
 @Component({
   selector: 'app-home',
   standalone: true,
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
   imports: [
     RouterModule,
     ReactiveFormsModule,
@@ -37,10 +41,11 @@ import { ArticlesService } from '../article/articles.service';
     SlicePipe,
     DatePipe,
     NgOptimizedImage,
+    SearchPipe,
+    HighlightPipe,
   ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
   public data$: Observable<ResultData> = inject(ArticlesService).getArticles();
+  public searchTermControl = new FormControl();
 }
