@@ -1,0 +1,20 @@
+@if (item$ | async; as item) {
+<div class="article-container">
+  <div class="article-background">
+    <img ngSrc="{{ item.image_url }}" fill priority alt="article image" />
+  </div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ item.title }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>{{ item.summary }}</mat-card-content>
+  </mat-card>
+
+  <div class="article-actions">
+    <button mat-button [routerLink]="['/']">
+      <mat-icon>arrow_back</mat-icon>
+      Back to homepage
+    </button>
+  </div>
+</div>
+}
