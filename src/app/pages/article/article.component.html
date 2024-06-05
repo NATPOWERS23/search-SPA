@@ -1,8 +1,9 @@
-@if (item$ | async; as item) {
+@if (article$ | async; as item) {
 <div class="article-container">
-  <div class="article-background">
-    <img ngSrc="{{ item.image_url }}" fill priority alt="article image" />
-  </div>
+  <div
+    class="article-background"
+    [style.background-image]="'url(' + item.image_url + ')'"
+  ></div>
   <mat-card>
     <mat-card-header>
       <mat-card-title>{{ item.title }}</mat-card-title>

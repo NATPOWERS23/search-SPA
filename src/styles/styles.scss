@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../../node_modules/@angular/material/prebuilt-themes/azure-blue.css";
+@import "./material";
 @import "./variables";
 
 html,
@@ -14,8 +15,7 @@ body {
 .container {
   max-width: 1290px;
   margin: 0 auto;
-  padding: 50px 0 0;
-  box-sizing: border-box;
+  padding: 0 75px;
   height: 100vh;
 }
 
@@ -37,35 +37,4 @@ body {
 
 .pointer {
   cursor: pointer;
-}
-
-.mat-mdc-card {
-  border: 1px solid $border-color !important;
-  border-radius: $border-radius !important;
-}
-
-.mdc-button {
-  font: 700 16px/24px $main-font !important;
-  color: black !important;
-  display: flex;
-  flex-direction: row-reverse;
-  column-gap: 6px;
-}
-
-.mdc-text-field--outlined .mat-mdc-form-field-infix,
-.mdc-text-field--no-label .mat-mdc-form-field-infix {
-  padding-top: 13px !important;
-  padding-bottom: 13px !important;
-  min-height: 50px !important;
-}
-
-.mat-mdc-form-field-subscript-wrapper,
-.mat-mdc-form-field-bottom-align::before {
-  display: none !important;
-  height: 0 !important;
-}
-
-.mat-grid-tile {
-  border-radius: 5px;
-  box-shadow: $shadow;
 }

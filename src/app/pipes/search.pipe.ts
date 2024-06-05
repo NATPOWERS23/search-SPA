@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Article } from '../home.interface';
+import { Article } from '../pages/home/home.interface';
 
 interface SearchItem extends Article {
   priority: number;

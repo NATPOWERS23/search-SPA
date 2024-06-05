@@ -34,13 +34,16 @@
             mat-card-image
             ngSrc="{{ item.image_url }}"
             fill
+            priority
             alt="article image"
           />
         </div>
         <mat-card-content>
           <div class="date">
             <mat-icon class="date-icon">calendar_today</mat-icon>
-            <span>{{ item.published_at | date : "longDate" }}</span>
+            <span>{{ item.published_at | date : "MMMM " }}</span>
+            <span>{{ item.published_at | date : "d" | dateSuffix }}</span>
+            <span>{{ item.published_at | date : "yyyy" }}</span>
           </div>
           <div
             class="title"
